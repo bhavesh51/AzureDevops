@@ -46,5 +46,14 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
+  - job: PrintName
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: run hello python
+      displayName: 'run file'
     
-
+    - script:
+        python3 hello.py
+      workingDirectory: $(projectRoot)
+      displayName: "Run Hello.py"
