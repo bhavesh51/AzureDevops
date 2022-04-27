@@ -50,7 +50,9 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: run hello python
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(pythonVersion)'
       displayName: 'run file'
     
     - script:
